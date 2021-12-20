@@ -13,7 +13,7 @@ import reactor.core.scheduler.Scheduler;
 
 import java.time.Duration;
 
-import static org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
 @Component
@@ -26,7 +26,7 @@ public class LiveDataEndpointController {
     @Autowired
     private Scheduler subscriberScheduler;
 
-    @GetMapping(value = "/liveData", produces = TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/liveData", produces = APPLICATION_JSON_VALUE)
     public Flux<CurrencyRateResponse> subscribe() {
         log.info("Request made to fetch live data");
 
