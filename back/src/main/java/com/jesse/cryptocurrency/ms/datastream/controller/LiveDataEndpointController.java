@@ -1,7 +1,6 @@
 package com.jesse.cryptocurrency.ms.datastream.controller;
 
 
-import com.jesse.cryptocurrency.ms.datastream.model.CurrencyRateResponse;
 import com.jesse.cryptocurrency.ms.datastream.service.CryptoLiveDataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

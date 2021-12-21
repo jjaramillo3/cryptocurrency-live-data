@@ -326,8 +326,9 @@
 
   <!-- Terminal -->
   <div class="terminal">
-    <pre *ngIf="isClicked == true">The current price of Bitcoin is ${{backendResponse}} USD per 1 BTC</pre>
+    <pre *ngIf="isClicked == true && backendResponse != null">The current price of Bitcoin is ${{backendResponse}} USD per 1 BTC</pre>
     <pre *ngIf="isClicked == false">Click the button to find price</pre>
+    <pre *ngIf="isClicked == true && backendResponse == null">Loading...</pre>
   </div>
 
   <!-- Footer -->
