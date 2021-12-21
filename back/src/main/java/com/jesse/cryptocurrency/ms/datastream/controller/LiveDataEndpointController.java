@@ -27,13 +27,14 @@ public class LiveDataEndpointController {
     private Scheduler subscriberScheduler;
 
     @GetMapping(value = "/liveData", produces = APPLICATION_JSON_VALUE)
-    public Flux<CurrencyRateResponse> subscribe() {
+    public Flux<String> subscribe() {
         log.info("Request made to fetch live data");
 
         return Flux.zip(streamingService.getLiveData(), Flux.interval(Duration.ofSeconds(1)),
                 (event,interval) -> {
                     log.info("Retrieved data: {}", event);
-                    return event;
+                    String tmpResponse = event.getRates().getUsd().getValue();
+                    return tmpResponse.substring(0, tmpResponse.length()-1);
                 }).delayElements(Duration.ofSeconds(1), subscriberScheduler);
 
     }
